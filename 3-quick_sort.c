@@ -8,8 +8,7 @@
  */
 void quick_sort(int *array, size_t size)
 {
-	/*if (array == NULL || size < 2)*/
-	if (size < 2)
+	if (array == NULL || size < 2)*/
 		return;
 	quick_sort_helper(array, 0, size - 1, size);
 }
@@ -35,7 +34,7 @@ void quick_sort_helper(int *array, int lo, int hi, size_t size)
 }
 
 /**
- * partition - Partitions a subarray of an array of integers using the Lomuto
+ * partitionn - Partitions a subarray of an array of integers using the Lomuto
  * partition scheme.
  * @array: The array to be partitioned.
  * @lo: The index of the first element in the subarray to be partitioned.
@@ -44,7 +43,7 @@ void quick_sort_helper(int *array, int lo, int hi, size_t size)
  *
  * Return: The final partition index.
  */
-int partition(int *array, int lo, int hi, size_t size)
+int partitionn(int *array, int lo, int hi, size_t size)
 {
 	int pivot = array[hi];
 	int i = lo - 1;
@@ -63,7 +62,48 @@ int partition(int *array, int lo, int hi, size_t size)
 	print_array(array, size);
 	return (i + 1);
 }
+/**
+ * partition - Partitions a subarray of an array of integers using the Lomuto
+ * partition scheme.
+ * @array: The array to be partitioned.
+ * @left: The index of the first element in the subarray to be partitioned.
+ * @right: The index of the last element in the subarray to be partitioned.
+ * @size: The size of the original array.
+ *
+ * Return: The final partition index.
+ */
+ int partition(int *array, int left, int right, size_t size)
+{
+	int tmp, i;
+	int j;
 
+	i = left - 1;
+
+	for (j = left; j < right; j++)
+	{
+		if (array[j] < array[right])
+		{
+			i++;
+			if (i != j)
+			{
+				tmp = array[i];
+				array[i] = array[j];
+				array[j] = tmp;
+				print_array(array, size);
+			}
+		}
+	}
+
+	if (array[right] < array[i + 1])
+	{
+		tmp = array[i + 1];
+		array[i + 1] = array[right];
+		array[right] = tmp;
+		print_array(array, size);
+	}
+
+	return (i + 1);
+}
 /**
  * swap - Swaps two integers in an array.
  * @a: The first integer to be swapped.
