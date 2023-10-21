@@ -72,7 +72,7 @@ int partitionn(int *array, int lo, int hi, size_t size)
  *
  * Return: The final partition index.
  */
- int partition(int *array, int left, int right, size_t size)
+int partition(int *array, int left, int right, size_t size)
 {
 	int tmp, i;
 	int j;
