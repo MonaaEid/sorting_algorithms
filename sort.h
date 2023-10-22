@@ -25,7 +25,7 @@ void quick_sort(int *array, size_t size);
 void quick_sort_helper(int *array, int lo, int hi, size_t size);
 int partitionn(int *array, int lo, int hi, size_t size);
 int partition(int *array, int left, int right, size_t size);
-void swap(int *a, int *b);
+void _swap(int *a, int *b);
 void shell_sort(int *array, size_t size);
 void swap_nodes(listint_t *node1, listint_t *node2, listint_t **list);
 void cocktail_sort_list(listint_t **list);
@@ -36,4 +36,5 @@ void merge(int *array, int lo, int mid, int hi, int *temp);
 void heap_sort(int *array, size_t size);
 void sift_down(int *array, int size, int i);
 void radix_sort(int *array, size_t size);
+
 #endif
