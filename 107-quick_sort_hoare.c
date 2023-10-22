@@ -65,7 +65,20 @@ int hoare_partition(int *array, int lo, int hi, size_t size)
         if (i >= j)
             return j;
 
-        -swap(&array[i], &array[j]);
+        _swap(&array[i], &array[j]);
         print_array(array, size);
     }
 }
+
+/**
+ * _swap - Swaps two integers in an array.
+ * @a: The first integer to be swapped.
+ * @b: The second integer to be swapped.
+ */
+void _swap(int *a, int *b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
