@@ -104,4 +104,15 @@ int partition(int *array, int left, int right, size_t size)
 
 	return (i + 1);
 }
+/**
+ * _swap - Swaps two integers in an array.
+ * @a: The first integer to be swapped.
+ * @b: The second integer to be swapped.
+ */
+void _swap(int *a, int *b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
 

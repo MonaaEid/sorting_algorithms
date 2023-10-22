@@ -46,3 +46,14 @@ void sift_down(int *array, int size, int i)
 		sift_down(array, size, max);
 	}
 }
+/**
+ * _swap - Swaps two integers in an array.
+ * @a: The first integer to be swapped.
+ * @b: The second integer to be swapped.
+ */
+void _swap(int *a, int *b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}

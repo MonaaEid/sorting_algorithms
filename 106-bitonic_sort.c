@@ -44,3 +44,14 @@ void bitonic_sort_recursive(int *array, size_t start, size_t size, int dir)
         bitonic_sort_recursive(array, start + k, k, dir);
     }
 }
+/**
+ * _swap - Swaps two integers in an array.
+ * @a: The first integer to be swapped.
+ * @b: The second integer to be swapped.
+ */
+void _swap(int *a, int *b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
