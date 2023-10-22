@@ -66,22 +66,22 @@ int partitionn(int *array, int lo, int hi, size_t size)
  * partition - Partitions a subarray of an array of integers using the Lomuto
  * partition scheme.
  * @array: The array to be partitioned.
- * @left: The index of the first element in the subarray to be partitioned.
- * @right: The index of the last element in the subarray to be partitioned.
+ * @lo: The index of the first element in the subarray to be partitioned.
+ * @hi: The index of the last element in the subarray to be partitioned.
  * @size: The size of the original array.
  *
  * Return: The final partition index.
  */
-int partition(int *array, int left, int right, size_t size)
+int partition(int *array, int lo, int hi, size_t size)
 {
 	int tmp, i;
 	int j;
 
-	i = left - 1;
+	i = lo - 1;
 
-	for (j = left; j < right; j++)
+	for (j = lo; j < hi; j++)
 	{
-		if (array[j] < array[right])
+		if (array[j] < array[hi])
 		{
 			i++;
 			if (i != j)
@@ -94,11 +94,11 @@ int partition(int *array, int left, int right, size_t size)
 		}
 	}
 
-	if (array[right] < array[i + 1])
+	if (array[hi] < array[i + 1])
 	{
 		tmp = array[i + 1];
-		array[i + 1] = array[right];
-		array[right] = tmp;
+		array[i + 1] = array[hi];
+		array[hi] = tmp;
 		print_array(array, size);
 	}
 
