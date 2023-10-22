@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "sort"
+#include "sort.h"
 
 /**
  * quick_sort_hoare - sorts an array of integers in ascending order using the
