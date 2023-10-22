@@ -4,7 +4,7 @@
 
 /**
  * quick_sort_hoare - sorts an array of integers in ascending order using the
- *                    Quick sort algorithm with Hoare partition scheme
+ * Quick sort algorithm with Hoare partition scheme
  * @array: array to be sorted
  * @size: size of the array
  */
@@ -38,7 +38,7 @@ void q_sort_hoare(int *array, int lo, int hi, size_t size)
 
 /**
  * hoare_partition - partitions an array of integers using the Hoare scheme
- *                   and returns the index of the pivot element
+ * and returns the index of the pivot element
  * @array: array to be partitioned
  * @lo: lower index of the partition to be sorted
  * @hi: higher index of the partition to be sorted
