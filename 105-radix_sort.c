@@ -44,7 +44,7 @@ void radix_sort(int *array, size_t size)
                 array[k] ^= array[i];
                 array[i] ^= array[k];
                 array[k] ^= array[i];
-                printf("%d", array[0]);
+                /*printf("%d", array[0]);*/
                 for (j = 1; j < (int)size; j++)
                     printf(", %d", array[j]);
                 printf("\n");
