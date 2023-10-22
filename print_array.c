@@ -21,3 +21,14 @@ void print_array(const int *array, size_t size)
 	}
 	printf("\n");
 }
+/**
+ * _swap - Swaps two integers in an array.
+ * @a: The first integer to be swapped.
+ * @b: The second integer to be swapped.
+ */
+void _swap(int *a, int *b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}

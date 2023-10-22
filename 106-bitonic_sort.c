@@ -36,7 +36,7 @@ void bitonic_sort_recursive(int *array, size_t start, size_t size, int dir)
             if ((array[i] > array[i + k]) == dir)
             {
                 _swap(&array[i], &array[i + k]);
-                print_array(array, start, size);
+                print_array(array, size);
             }
         }
 
