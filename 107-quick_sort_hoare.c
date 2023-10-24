@@ -46,13 +46,13 @@ void q_sort_hoare(int *array, int lo, int hi, size_t size)
  *
  * Return: index of the pivot element
  */
-int hoare_partition(int *array, int left, int right, size_t size)
+int hoare_partition(int *array, int lo, int hi, size_t size)
 {
-   int tmp, pivot = array[right];
+   int tmp, pivot = array[hi];
 	size_t i, j;
 
-	i = left - 1;
-	j = right + 1;
+	i = lo - 1;
+	j = hi + 1;
 	while (1)
 	{
 		do {
