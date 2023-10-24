@@ -4,16 +4,14 @@
 
 /**
  * compare_cards - compares two cards based on their kind and value
- * @card1: first card to be compared
- * @card2: second card to be compared
- *
+ * @node: first card to be compared
  * Return: negative value if card1 is less than card2, positive value if card1
  * is greater than card2, 0 if they are equal
  */
 int compare_cards(deck_node_t *node)
 {
-    char *val[13] = {"Ace", "2", "3", "4", "5", "6",
-		"7", "8", "9", "10", "Jack", "Queen", "King"};
+	char *val[13] = {"Ace", "2", "3", "4", "5", "6",
+	"7", "8", "9", "10", "Jack", "Queen", "King"};
 	char *kinds[4] = {"SPADE", "HEART", "CLUB", "DIAMOND"};
 	int i, kind_val = 0;
 
@@ -22,31 +20,28 @@ int compare_cards(deck_node_t *node)
 		if (!_strcmp(node->card->value, val[i - 1]))
 			kind_val = i;
 	}
-
 	for (i = 1; i <= 4; i++)
 	{
 		if (!_strcmp(kinds[node->card->kind], kinds[i - 1]))
 			kind_val = kind_val + (13 * i);
 	}
-
 	return (kind_val);
 }
 
 /**
- * sort_deck - sorts a deck of cards in ascending order using the qsort function
+ * sort_deck - sorts a deck of cards in ascending
+ * order using the qsort function
  * @deck: pointer to the head of the deck to be sorted
  */
 void sort_deck(deck_node_t **deck)
 {
-    deck_node_t *curr;
+	deck_node_t *curr;
 	size_t len;
 	deck_node_t *one, *two, *three, *four;
 
-	len = list_len_deck(*deck);
-
+	len = deck_list_len(*deck);
 	if (!deck || !*deck || len < 2)
 		return;
-
 	curr = *deck;
 	while (curr)
 	{
@@ -56,7 +51,6 @@ void sort_deck(deck_node_t **deck)
 			two = curr->prev;
 			three = curr;
 			four = curr->next;
-
 			two->next = four;
 			if (four)
 				four->prev = two;
@@ -76,12 +70,11 @@ void sort_deck(deck_node_t **deck)
 }
 
 /**
- * _strcmp - compares two strings
- * @s1: first string to compare
- * @s2: second string to compare
+ * _strcmp - function that compares two strings
+ * @s1: first string
+ * @s2: second string
  *
- * Return: less than 0 if s1 is less than s2, 0 if they're equal,
- * more than 0 if s1 is greater than s2
+ * Return: zero or more than Zero
  */
 int _strcmp(const char *s1, const char *s2)
 {
@@ -98,12 +91,12 @@ int _strcmp(const char *s1, const char *s2)
 }
 
 /**
- * list_len_deck - function returns length of list
+ * deck_list_len - function that returns length of list.
  * @list: head of list
  *
- * Return: length
+ * Return: length of list
  */
-size_t list_len_deck(deck_node_t *list)
+size_t deck_list_len(deck_node_t *list)
 {
 	size_t len = 0;
 
