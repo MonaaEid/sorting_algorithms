@@ -46,8 +46,9 @@ void radix_sort(int *array, size_t size)
                 array[k] ^= array[i];
                 /*printf("%d", array[0]);*/
                 for (j = 1; j < (int)size; j++)
-                    printf(", %d", array[j]);
-                printf("\n");
+                    print_array(array, size);
+                    /*printf(", %d", array[j]);*/
+                /*printf("\n");*/
             }
         }
         exp *= 10;

@@ -46,7 +46,7 @@ void q_sort_hoare(int *array, int lo, int hi, size_t size)
  *
  * Return: index of the pivot element
  */
-int hoare_partitionn(int *array, int lo, int hi, size_t size)
+int hoare_partition(int *array, int lo, int hi, size_t size)
 {
     int pivot = array[hi];
     int i = lo - 1;
@@ -69,32 +69,7 @@ int hoare_partitionn(int *array, int lo, int hi, size_t size)
         print_array(array, size);
     }
 }
-int hoare_partition(int *array, int left, int right, size_t size)
-{
-	int tmp, pivot = array[right];
-	size_t i, j;
-	i = left - 1;
-	j = right + 1;
-	while (1)
-	{
-		do {
-			i++;
-		} while (array[i] < pivot);
-		do {
-			j--;
-		} while (array[j] > pivot);
-		if (i >= j)
-			return (i);
-		if (i != j)
-		{
-			tmp = array[i];
-			array[i] = array[j];
-			array[j] = tmp;
-			print_array(array, size);
-		}
-	}
-	return (0);
-}
+
 /**
  * _swap - Swaps two integers in an array.
  * @a: The first integer to be swapped.
