@@ -3,55 +3,45 @@
 #include "sort.h"
 /**
  * radix_sort - sorts an array of integers in ascending order using the
- *              Radix sort algorithm
+ * Radix sort algorithm
  * @array: array to be sorted
  * @size: size of the array
  */
 void radix_sort(int *array, size_t size)
 {
-    int i, j, k;
-    int max = 0;
-    int exp = 1;
-    int *bucket = NULL;
+	int max;
+	size_t i, lsd;
+	int count_arr[10] = {0}, *out_arr, l, m;
+	size_t k, n;
 
-    if (!array || size < 2)
-        return;
 
-    bucket = malloc(sizeof(int) * 10);
-    if (!bucket)
-        return;
+	if (!array || size < 2)
+		return;
 
-    for (i = 0; i < (int)size; i++)
-        max = array[i] > max ? array[i] : max;
+	max = 0;
+	for (i = 0; i < size; i++)
+		if (array[i] > max)
+			max = array[i];
 
-    while (max / exp > 0)
-    {
-        for (i = 0; i < 10; i++)
-            bucket[i] = 0;
+	for (lsd = 1; max / lsd > 0; lsd *= 10)
+	{
+		out_arr = malloc(sizeof(int) * size);
 
-        for (i = 0; i < (int)size; i++)
-            bucket[(array[i] / exp) % 10]++;
+		for (k = 0; k < size; k++)
+			count_arr[(array[k] / lsd) % 10]++;
+		for (l = 1; l < 10; l++)
+			count_arr[l] += count_arr[l - 1];
 
-        for (i = 1; i < 10; i++)
-            bucket[i] += bucket[i - 1];
+		for (m = size - 1; m >= 0; m--)
+		{
+			out_arr[count_arr[(array[m] / lsd) % 10] - 1] = array[m];
+			count_arr[(array[m] / lsd) % 10]--;
+		}
 
-        for (i = size - 1; i >= 0; i--)
-        {
-            j = (array[i] / exp) % 10;
-            k = --bucket[j];
-            if (k != i)
-            {
-                array[k] ^= array[i];
-                array[i] ^= array[k];
-                array[k] ^= array[i];
-                /*printf("%d", array[0]);*/
-                for (j = 1; j < (int)size; j++)
-                    print_array(array, size);
-                    /*printf(", %d", array[j]);*/
-                /*printf("\n");*/
-            }
-        }
-        exp *= 10;
-    }
-    free(bucket);
+		for (n = 0; n < size; n++)
+			array[n] = out_arr[n];
+
+		free(out_arr);
+		print_array(array, size);
+	}
 }

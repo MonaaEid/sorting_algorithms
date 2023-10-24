@@ -10,15 +10,14 @@
  */
 void quick_sort_hoare(int *array, size_t size)
 {
-    if (size < 2)
-        return;
-
-    q_sort_hoare(array, 0, size - 1, size);
+	if (size < 2)
+		return;
+	q_sort_hoare(array, 0, size - 1, size);
 }
 
 /**
- * q_sort_hoare - recursive function that sorts an array of integers in ascending
- *                order using the Quick sort algorithm with Hoare partition scheme
+ * q_sort_hoare - recursive function that sorts an array of integers in asc
+ * order using the Quick sort algorithm with Hoare partition scheme
  * @array: array to be sorted
  * @lo: lower index of the partition to be sorted
  * @hi: higher index of the partition to be sorted
@@ -26,14 +25,14 @@ void quick_sort_hoare(int *array, size_t size)
  */
 void q_sort_hoare(int *array, int lo, int hi, size_t size)
 {
-    int p;
+	int p;
 
-    if (lo < hi)
-    {
-        p = hoare_partition(array, lo, hi, size);
-        q_sort_hoare(array, lo, p, size);
-        q_sort_hoare(array, p + 1, hi, size);
-    }
+	if (lo < hi)
+	{
+		p = hoare_partition(array, lo, hi, size);
+		q_sort_hoare(array, lo, p, size);
+		q_sort_hoare(array, p + 1, hi, size);
+	}
 }
 
 /**
@@ -48,26 +47,23 @@ void q_sort_hoare(int *array, int lo, int hi, size_t size)
  */
 int hoare_partition(int *array, int lo, int hi, size_t size)
 {
-    int pivot = array[hi];
-    int i = lo - 1;
-    int j = hi + 1;
+	int pivot = array[hi];
+	int i = lo - 1;
+	int j = hi + 1;
 
-    while (1)
-    {
-        do {
-            i++;
-        } while (array[i] < pivot);
-
-        do {
-            j--;
-        } while (array[j] > pivot);
-
-        if (i >= j)
-            return j;
-
-        _swap(&array[i], &array[j]);
-        print_array(array, size);
-    }
+	while (1)
+	{
+		do {
+			i++;
+		} while (array[i] < pivot);
+		do {
+			j--;
+		} while (array[j] > pivot);
+		if (i >= j)
+			return (j);
+		_swap(&array[i], &array[j]);
+		print_array(array, size);
+	}
 }
 
 /**
