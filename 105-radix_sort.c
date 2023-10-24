@@ -14,7 +14,6 @@ void radix_sort(int *array, size_t size)
 	int count_arr[10] = {0}, *out_arr, l, m;
 	size_t k, n;
 
-
 	if (!array || size < 2)
 		return;
 
