@@ -63,9 +63,9 @@ void merge(int *array, int lo, int mid, int hi, int *temp)
 			temp[k++] = array[j++];
 	}
 	while (i <= mid)
-		temp[k++] = array[i++];	
+		temp[k++] = array[i++];
 	while (j <= hi)
-		temp[k++] = array[j++];	
+		temp[k++] = array[j++];
 	for (k = lo; k <= hi; k++)
 		array[k] = temp[k];
 }
